@@ -42,7 +42,7 @@ export default function CartSidebar() {
             <div>
               <Link
                 href="/cart"
-                className="w-full text-center p-1  rounded-2xl border-2  border-indigo-500 background-indigo-500"
+                className="w-full text-center p-1  rounded-2xl border-2  border-indigo-500 "
               >
                 Go to cart
               </Link>
