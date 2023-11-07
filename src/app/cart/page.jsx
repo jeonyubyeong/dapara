@@ -18,20 +18,23 @@ export default function CartPage() {
   const addToCartHandler = async (product, qty) => {
     dispatch(addToCart({ ...product, qty }))
   }
-
   return (
     <div>
       <h1 className="mb-4 text-xl">Shopping Cart</h1>
+
       {loading ? (
         <div>Loading...</div>
       ) : cartItems.length === 0 ? (
         <div>
-          Cart is empty. <Link href="/">Go shopping</Link>
+          Cart is empty.{' '}
+          <Link className="text-blue-500" href="/">
+            Go shopping
+          </Link>
         </div>
       ) : (
         <div className="grid md:grid-cols-4 md:gap-5">
           <div className="overflow-x-auto md:col-span-3">
-            <table className="min-w-full">
+            <table className="min-w-full ">
               <thead className="border-b">
                 <tr>
                   <th className="p-5 text-left">Product</th>

@@ -12,7 +12,7 @@ export default function ProductDetailPage({ params: { id } }) {
   return (
     <div>
       <div className="py-2">
-        <Link href="/">back to products</Link>
+        <Link className="text-blue-500" href="/">back to products</Link>
       </div>
       <div className="grid md:grid-cols-4 md:gap-3">
         <div className="md:col-span-2">
