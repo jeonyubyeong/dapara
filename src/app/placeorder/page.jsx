@@ -139,7 +139,7 @@ export default function PlaceOrderScreen() {
                 </li>
                 <li>
                   <button
-                    onClick={() => alert('Not implemented')}
+                    onClick={() => alert('Not implemented. 공사중')}
                     className="primary-button w-full"
                   >
                     Place Order
