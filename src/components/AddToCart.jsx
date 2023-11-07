@@ -58,7 +58,7 @@ export default function AddToCart({
             Add to cart
           </button>
         ) : (
-          <button disabled>Out of stock</button>
+          <button disabled className='default-button'>Out of stock</button>
         )}
       </div>
     </>

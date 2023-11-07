@@ -1,4 +1,3 @@
-// utils/data.js
 export const data = {
   products: [
     {

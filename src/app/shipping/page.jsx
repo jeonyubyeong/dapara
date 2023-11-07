@@ -1,17 +1,22 @@
-"use client"
+'use client'
 
 import CheckoutWizard from '@/components/CheckoutWizard'
 import { saveShippingAddress } from '@/redux/slices/cartSlice'
 import { useRouter } from 'next/navigation'
-import React, { useEffect } from 'react'
+import { useEffect } from 'react'
 import { useForm } from 'react-hook-form'
 import { useDispatch, useSelector } from 'react-redux'
 
 export default function ShippingAddressPage() {
-  const { handleSubmit, register, formState: {errors}, setValue } = useForm()
+  const {
+    handleSubmit,
+    register,
+    formState: { errors },
+    setValue,
+  } = useForm()
   const router = useRouter()
   const dispatch = useDispatch()
-  const { shippingAddress } = useSelector(state => state.cart)
+  const { shippingAddress } = useSelector((state) => state.cart)
 
   useEffect(() => {
     setValue('fullName', shippingAddress.fullName)
@@ -21,19 +26,22 @@ export default function ShippingAddressPage() {
     setValue('country', shippingAddress.country)
   }, [setValue, shippingAddress])
 
-
   const submitHandler = ({ fullName, address, city, postalCode, country }) => {
     dispatch(
-      saveShippingAddress({ fullName, address, city, postalCode, country }))
-      router.push('/payment')
-    }
+      saveShippingAddress({ fullName, address, city, postalCode, country })
+    )
 
+    router.push('/payment')
+  }
   return (
     <div>
       <CheckoutWizard activeStep={1} />
-      <form className='mx-auto max-w-screen-md' onSubmit={handleSubmit(submitHandler)}>
-      <h1 className='mb-4 text-xl font-bold'>Shipping Address</h1>
-      <div className="mb-4">
+      <form
+        className="mx-auto max-w-screen-md"
+        onSubmit={handleSubmit(submitHandler)}
+      >
+        <h1 className="mb-4 text-xl">Shipping Address</h1>
+        <div className="mb-4">
           <label htmlFor="fullName">Full Name</label>
           <input
             className="w-full"
@@ -55,8 +63,8 @@ export default function ShippingAddressPage() {
             {...register('address', {
               required: 'Please enter address',
               minLength: {
-                value: 5,
-                message: 'Address is more than 4 chars',
+                value: 3,
+                message: 'Address is more than 2 chars',
               },
             })}
           />
@@ -109,4 +117,4 @@ export default function ShippingAddressPage() {
       </form>
     </div>
   )
-          }
+}
